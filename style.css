@@ -1,0 +1,39 @@
+/* *{
+} */
+
+body{
+
+background-color:rgb(246, 255, 246);
+
+
+}
+section{
+    border: 9px solid black;
+    background-color: rgb(249, 243, 232);
+    height: 500px;
+    width: 500px; 
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 110px;
+   
+}
+.game{
+  background-image: url(images/xo2.jpg);
+}
+
+.row{
+    border: 1px solid black;
+    height: 165px;
+    width: 500px;
+    display: flex;
+}
+
+.col{
+    border: 1px solid black;
+    height: 165px;
+    width: 165px;
+    text-align: center;
+    font-size: 100px;
+   
+
+}
