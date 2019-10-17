@@ -1,4 +1,5 @@
 
+//Setting the varaibles 
 var game = [
     ["1", "2", "3"],
     ["4", "5", "6"],
@@ -11,13 +12,13 @@ var game = [
 ]
 
 var flag = true;
-var playerHuman= [];
-var playerPablo = [];
-var human = "O";
-var pablo = "X";
+var player1= [];
+var player2 = [];
+var playerO = "O";
+var playerX = "X";
 
 
-
+//Starting the game
 $(document).ready(function(){
     $(".game").hide();
     $("button").click(function(){
@@ -34,20 +35,19 @@ $(document).ready(function(){
         "font-size": "20px",
         "font-weight":"bolder"});
 
-$("#inside").click(function(){
+    //When the game is over 
+    $("#inside").click(function(){
 
+    $('.col').removeClass('click')
 
     $('.col').text(' ');
     
-
- $('.col').removeClass('click')
-    
     $(".col").css('color' , 'black')
-    playerHuman = [];
-    playerPablo = [];
+    player1 = [];
+    player2 = [];
     
 });
-
+    //Swithcing players 
     $(".col").click(function (e) {
 
         var click = $(this).hasClass("click")
@@ -57,12 +57,12 @@ $("#inside").click(function(){
             $(this).addClass("click")
             if (flag) {
     
-                $(this).text(human);
-                playerHuman.push(this.id);
+                $(this).text(playerX);
+                player1.push(this.id);
                 game.forEach(win => {
     
-                    if (playerHuman.includes(win[0]) && playerHuman.includes(win[1]) && playerHuman.includes(win[2])) {
-                        alert("You are winning!");
+                    if (player1.includes(win[0]) && player1.includes(win[1]) && player1.includes(win[2])) {
+                        alert("You Won!");
                         $(".col").addClass("click")
                         $("#"+win[0]).css('color' , 'red')
                         $("#"+win[1]).css('color' , 'red')
@@ -73,12 +73,12 @@ $("#inside").click(function(){
                 flag = !flag
             }
             else {
-                $(this).text(pablo);
-                playerPablo.push(this.id);
+                $(this).text(playerO);
+                player2.push(this.id);
                 game.forEach(win => {
     
-                    if (playerPablo.includes(win[0]) && playerPablo.includes(win[1]) && playerPablo.includes(win[2])) {
-                        alert("You are winning!");
+                    if (player2.includes(win[0]) && player2.includes(win[1]) && player2.includes(win[2])) {
+                        alert("You Won!");
                         $(".col").addClass("click")
                         $("#"+win[0]).css('color' , 'red')
                         $("#"+win[1]).css('color' , 'red')
@@ -93,28 +93,16 @@ $("#inside").click(function(){
        
     });
     
+    //Adding a hover effect 
     $(".col").hover(function () {
     
         $(this).css("background-color", "#B9B9B9");
-        //$(this).css('z-index', 1)
+        
       
     }, function () {
     
-    //    $(this).css("background-color", "none");
-    //    console.log($(this).hasClass('click'))
-    //    if (!$(this).hasClass('click')){
-
-    //    $(this).css('z-index', -1)
-    //    }
-
-    
     }
     );
-
-
-    
-
-
 
 });
 
